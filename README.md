@@ -1,43 +1,38 @@
 # 📊 Anomaly Detection Software
 
-Welcome to **Anomaly Detection Software**! This lightweight tool leverages statistical methods to identify outliers in numerical datasets. Its main goal is to help you detect unusual or abnormal data points with minimal setup.
+Welcome to **Anomaly Detection Software**, a C/C++ based tool that helps you detect anomalies in numerical datasets using statistical methods. The software uses a straightforward statistical anomaly detection algorithm that can be integrated into any system for identifying outliers in a given dataset.
+
+## ⚙️ Overview
+
+This software implements a **statistical approach** for detecting anomalies based on the assumption that the data follows a **normal distribution**. It identifies outliers using the **mean** and **standard deviation**, flagging data points that are outside a configurable threshold.
 
 ## ✨ Key Features
 
-- **📈 Statistical Approach**: Utilizes fundamental statistical methods for anomaly detection.
-- **🔍 Normal Distribution Assumption**: Assumes your data follows a normal distribution.
-- **📏 Mean and Standard Deviation Based**: Detects anomalies based on deviations from the mean.
-- **⚙️ Configurable Threshold**: Preconfigured to 2 standard deviations, but can be customized as per your needs.
+- **🧠 Statistical Detection**: Simple and effective detection using mean and standard deviation.
+- **📊 Normal Distribution Assumption**: Detects anomalies assuming the data follows a normal distribution.
+- **⚙️ Configurable Threshold**: Allows users to adjust the number of standard deviations used to flag anomalies (default is 2).
+- **💾 Memory-efficient**: The algorithm processes the dataset in two passes to calculate accurate statistics while minimizing memory use.
+- **💡 Modular**: The software is split into modular components for preprocessing, detecting, and printing anomalies.
 
 ## 🛠️ How It Works
 
-1. **Input**: Provide an array of float values.
-2. **Calculations**:
-   - Computes the **mean** and **standard deviation** of the dataset.
-   - Flags data points that fall outside 2 standard deviations from the mean.
-3. **Output**: A 2D array where each row contains:
-   - The original value
-   - A flag (`1.0` for anomaly, `0.0` for normal)
+1. **Input**: The software takes an array of float values as input.
+2. **Preprocessing**:
+   - The dataset is first preprocessed (if necessary) to clean and normalize the data.
+3. **Detection**:
+   - It computes the **mean** and **standard deviation** of the dataset.
+   - Any data point that lies outside a specified number of standard deviations from the mean (default is 2) is flagged as an anomaly.
+4. **Output**: The software returns a 2D array where each row contains:
+   - The original data point.
+   - A flag (`1.0` for anomaly, `0.0` for normal data point).
 
-## 📚 Use Cases
+## 🧑‍💻 Code Breakdown
 
-- **🏭 Quality Control**: Identify defective products in manufacturing processes.
-- **💰 Financial Analysis**: Spot unusual transactions or market behaviors.
-- **🌍 Environmental Monitoring**: Detect abnormal sensor readings.
-- **🛡️ Network Security**: Identify suspicious network traffic patterns.
+### Core Files
 
-## ⚠️ Limitations
-
-- **Assumption of Normality**: Assumes data follows a normal distribution, which may not hold true for all real-world datasets.
-- **Fixed Threshold**: The default threshold of 2 standard deviations may not suit every dataset.
-- **Single-Variable Focus**: Designed for univariate data, not complex multivariate patterns.
-
-## 🚀 Future Enhancements
-
-This software is designed as a **foundation** for anomaly detection. It can be extended and refined for specific use cases, including:
-- **Multivariate Data Handling**
-- **Dynamic Thresholding**
-- **Integration with Machine Learning Models**
-
----
- 
+1. **`detect_anomalies.c`**: Implements the core algorithm for anomaly detection.
+   - Computes the mean and standard deviation in two passes.
+   - Allocates memory for results and returns a 2D array with the original values and flags for anomalies.
+2. **`extract_features.c`**: Handles any feature extraction from the dataset, preparing the data for anomaly detection.
+3. **`preprocess_data.cpp`**: Prepares and normalizes the dataset before feeding it into the anomaly detection algorithm.
+4. **`print_anomalies.cpp`**: A utility to print the detected anomalies to the console and store them in a structured format.

@@ -8,10 +8,9 @@ This software implements a **statistical approach** for detecting anomalies base
 
 ## ✨ Key Features
 
-- **🧠 Statistical Detection**: Simple and effective detection using mean and standard deviation.
+- **🧠 Statistical Detection**: Simple and effective detection using mean and standard deviation. Note: These simpler methods may not be useful for your use-case.
 - **📊 Normal Distribution Assumption**: Detects anomalies assuming the data follows a normal distribution.
-- **⚙️ Configurable Threshold**: Allows users to adjust the number of standard deviations used to flag anomalies (default is 2).
-- **💾 Memory-efficient**: The algorithm processes the dataset in two passes to calculate accurate statistics while minimizing memory use.
+- **💾 Memory-efficient**: The algorithm processes the dataset in two passes to calculate accurate statistics while minimizing memory use. Note: to be more precise: O(n) time and space complexity...
 - **💡 Modular**: The software is split into modular components for preprocessing, detecting, and printing anomalies.
 
 ## 🛠️ How It Works
